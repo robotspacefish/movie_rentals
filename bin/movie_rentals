@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+require 'pry'
+require_relative '../lib/rental_store.rb'
+require_relative '../lib/customer.rb'
+require_relative '../lib/movie.rb'
+
+blockbuster = RentalStore.new("Blockbuster")
+
+movies = [
+  Movie.new("The Net", "Irwin Winkler", 1995, ["Sandra Bullock", "Jeremy Northam", "Dennis Miller", "Diane Baker"], "Action"),
+  Movie.new("Pirates of Silicon Valley", "Martyn Burke", 1999, ["Anthony Michael Hall", "Noah Wyle", "Joey Slotnick"], "Drama"),
+  Movie.new("Antitrust", "Peter Howitt", 2001, ["Ryan Phillipe", "Tim Robbins", "Rachael Leigh Cook", "Claire Forlani"], "Drama"),
+  Movie.new("Terminator: Dark Fate", "Tim Miller", 2019, ["Linda Hamilton", "Arnold Schwarzenegger", "Mackenzie Davis", "Natalia Reyes"], "Action")
+]
+
+movies.each { |m| blockbuster.add_movie(m) }
+
+customers = [
+  Customer.new("Lisa Canoe", "lisa.canoe@gmail.com"),
+  Customer.new("Igor Pontiac", "igor@gmail.com"),
+  Customer.new("Seymour Tagmomian", "seymour123@gmail.com"),
+  Customer.new("Klaus Lichdempawz", "kpawz1992@gmail.com"),
+  Customer.new("Ana Vicarious", "anavic53@gmail.com"),
+  Customer.new("Asil Everby", "everby.asil@gmail.com")
+]
+
+customers.each { |c| blockbuster.add_customer(c) }
+
+blockbuster.run
+
